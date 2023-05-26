@@ -4,24 +4,29 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Docotors</title>
+    <title>Docotors Page</title>
+    <style>
+      #container {
+        width: 50%;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .card {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <nav>
       <a href="index.html">Users</a>
       <a href="students.html">Studetns</a>
     </nav>
+    <h1>Doctor's page</h1>
+    <div id="container"></div>
   </body>
-  <script>
-    fetch(`http://localhost:5000/doctors`)
-      .then((res) => {
-        return res.json();
-      })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  </script>
+
+  <script src="./scripts/doctors.js"></script>
 </html>

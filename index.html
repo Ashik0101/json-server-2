@@ -4,14 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Users Page</title>
+    <style>
+      #parent {
+        display: flex;
+        justify-content: space-around;
+      }
+      #container {
+        width: 50%;
+        border: 2px solid red;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .card {
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <nav>
       <a href="doctors.html">Doctors</a>
       <a href="students.html">Studetns</a>
     </nav>
-    <h1>hello jeee</h1>
+    <h1>User's page</h1>
+    <div id="parent">
+      <div id="container"></div>
+      <div>
+        <h1>Add Users</h1>
+        <input
+          id="name"
+          type="text"
+          placeholder="enter your name here.."
+          required
+        />
+        <input id="age" type="number" placeholder="age goes here..." required />
+        <input id="id_input" type="number" placeholder="id..." required />
+        <button id="submit">Add</button>
+      </div>
+    </div>
   </body>
   <script src="./scripts/index.js"></script>
 </html>
