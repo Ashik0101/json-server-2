@@ -1,0 +1,25 @@
+{
+  "users": [
+    { "name": "rohan", "age": 20 },
+    { "name": "sohan", "age": 22 }
+  ],
+  "doctors": [
+    { "name": "chandsi", "experience": 5 },
+    { "name": "murari", "experience": 6 },
+    { "name": "firoz", "experience": 1 }
+  ],
+  "students": [
+    {
+      "name": "aparna",
+      "class": 12
+    },
+    {
+      "name": "shivam",
+      "class": 11
+    },
+    {
+      "name": "shivani",
+      "class": 10
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docotors</title>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Users</a>
+      <a href="students.html">Studetns</a>
+    </nav>
+  </body>
+  <script>
+    fetch(`http://localhost:5000/doctors`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  </script>
+</html>
