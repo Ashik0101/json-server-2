@@ -53,6 +53,7 @@ function AddUser(data) {
       "Content-type": "application/json",
     },
     body: JSON.stringify(data),
+    mode: "cors",
   })
     .then((res) => {
       return res.json();
