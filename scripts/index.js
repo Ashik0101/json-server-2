@@ -64,7 +64,8 @@ function AddUser(data) {
       return res.json();
     })
     .then((res) => {
-      fetchData();
+      // fetchData();
+      location.reload();
     })
     .catch((error) => {
       console.log(error);
@@ -93,7 +94,7 @@ function deleteFunction(id) {
     })
     .then((res) => {
       console.log(res);
-      fetchData();
+      location.reload();
     })
     .catch((err) => {
       console.log("err :", err);
