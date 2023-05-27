@@ -1,4 +1,5 @@
 const url = `https://json-server-deployment-2.onrender.com`;
+
 function fetchData() {
   fetch(`${url}/users`)
     .then((res) => {
@@ -53,7 +54,6 @@ function AddUser(data) {
       "Content-type": "application/json",
     },
     body: JSON.stringify(data),
-    mode: "cors",
   })
     .then((res) => {
       return res.json();
