@@ -1,4 +1,4 @@
-const url = `https://json-server-deployment-2.onrender.com`;
+const url = "https://json-server-deployment-2.onrender.com";
 window.addEventListener("load", fetchData);
 function fetchData() {
   fetch(`${url}/users`, {
@@ -10,6 +10,7 @@ function fetchData() {
     .then((res) => {
       console.log("res :", res);
       appendData(res);
+      handleDelete();
     })
     .catch((err) => {
       console.log(err);
@@ -21,16 +22,18 @@ function appendData(data) {
   container.innerHTML = null;
   container.innerHTML = `${data
     .map((element) => {
-      return createCard(element.name, element.age);
+      return createCard(element.name, element.age, element.id);
     })
     .join(" ")}`;
 }
 
-function createCard(name, age) {
+function createCard(name, age, id) {
   return `
       <div class="card">
+         <p> ${id} </p>
          <h3>Name : ${name}</h3>
          <p>Age : ${age}</p>
+         <button id="button" data-id = "${id}">Delete </button>
       </div>
       
       `;
@@ -65,5 +68,34 @@ function AddUser(data) {
     })
     .catch((error) => {
       console.log(error);
+    });
+}
+
+function handleDelete() {
+  let buttons = document.querySelectorAll("#button");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      console.log(event.target.dataset.id);
+      deleteFunction(event.target.dataset.id);
+    });
+  });
+}
+
+function deleteFunction(id) {
+  fetch(`${url}/users/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+    },
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((res) => {
+      console.log(res);
+      fetchData();
+    })
+    .catch((err) => {
+      console.log("err :", err);
     });
 }
