@@ -1,7 +1,9 @@
 const url = `https://json-server-deployment-2.onrender.com`;
-
+window.addEventListener("load", fetchData);
 function fetchData() {
-  fetch(`${url}/users`)
+  fetch(`${url}/users`, {
+    method: "GET",
+  })
     .then((res) => {
       return res.json();
     })
@@ -13,7 +15,7 @@ function fetchData() {
       console.log(err);
     });
 }
-fetchData();
+
 function appendData(data) {
   let container = document.getElementById("container");
   container.innerHTML = null;
@@ -59,10 +61,6 @@ function AddUser(data) {
       return res.json();
     })
     .then((res) => {
-      //       console.log(res);
-      //       if (res.status === 201) {
-      //         alert("user added");
-      //       }
       fetchData();
     })
     .catch((error) => {
